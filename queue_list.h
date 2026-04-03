@@ -1,1 +1,1 @@
-typedef struct c_queue queue;
+typedef struct c_queue* queue;
