@@ -41,3 +41,25 @@ int emptyQueue( queue q)
     else 
         return 0;//returning 0 if the queue is not empty
 }
+
+int enqueue(queue q, int e)
+{
+    struct node* new = malloc(sizeof(struct node)); //allocating the memory space to store the new element of the queue
+    if(new == NULL) //checking if the allocatin goes wrong
+    {
+        printf("Not enough memory to add the element to the queue."); //if that's the case i warn the user 
+        return 0; //returning 0 to warn the user that the add gone wrong 
+    }
+    
+    new->item = e; //initializing the item field of the new element with the value of the formal parameter
+    new -> next = q ->tail; //iniatilizing the next field of the new element with the reference of the queue's tail, to link the new 
+                            //element with the queue
+    q -> tail = new; //updating the queue's tail reference with the new element reference
+
+    if(q -> size)//checking if the size of the queue is 0 so the queue is empty
+    {   
+        q -> head = new; //if that is the case whe initialize the reference to the queue's head with the reference of the new element
+    }
+    (q -> size)++; //increasing the size of the queue
+    return 1; //returning 1
+}
