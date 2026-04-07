@@ -52,8 +52,7 @@ int enqueue(queue q, int e)
     }
     
     new->item = e; //initializing the item field of the new element with the value of the formal parameter
-    new -> next = q ->tail; //iniatilizing the next field of the new element with the reference of the queue's tail, to link the new 
-                            //element with the queue
+    new -> next = NULL; //iniatilizing the next field of the new element with the new value, because that's the tail of the queue
     q -> tail = new; //updating the queue's tail reference with the new element reference
 
     if(q -> size == 0)//checking if the size of the queue is 0 so the queue is empty
