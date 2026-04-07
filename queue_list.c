@@ -36,6 +36,12 @@ queue newQueue()
 
 int emptyQueue( queue q)
 {
+    if(q == NULL) //if the reference to the queue is NULL the queue does not exists
+    {
+        printf("The queue is not existing, impossible to see the size."); //warning the user
+        return 0; //returning 0 to represent failure
+    }
+
     if( q -> size == 0)// checking if the size of the queue is equal to 0
         return 1; //returning 1 if that's true
     else 
@@ -44,6 +50,12 @@ int emptyQueue( queue q)
 
 int enqueue(queue q, int e)
 {
+    if(q == NULL) //if the reference to the queue is NULL the queue does not exists
+    {
+        printf("The queue is not existing, impossible to add an element."); //warning the user
+        return 0; //returning 0 to represent failure
+    }
+
     struct node* new = malloc(sizeof(struct node)); //allocating the memory space to store the new element of the queue
     if(new == NULL) //checking if the allocatin goes wrong
     {
@@ -65,6 +77,11 @@ int enqueue(queue q, int e)
 
 int dequeue( queue q)
 {
+    if(q == NULL) //if the reference to the queue is NULL the queue does not exists
+    {
+        printf("The queue is not existing, impossible to remove an element."); //warning the user
+        return 0; //returning 0 to represent failure
+    }
     if(q -> size == 0) //checking if the size of the queue is 0
     {
         printf("Impossible to remove an element in an empty queue."); //warning the user
