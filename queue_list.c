@@ -33,3 +33,11 @@ queue newQueue()
     
     return q; //returning the queue variable
 }
+
+int emptyQueue( queue q)
+{
+    if( q -> size == 0)// checking if the size of the queue is equal to 0
+        return 1; //returning 1 if that's true
+    else 
+        return 0;//returning 0 if the queue is not empty
+}
