@@ -56,7 +56,7 @@ int enqueue(queue q, int e)
                             //element with the queue
     q -> tail = new; //updating the queue's tail reference with the new element reference
 
-    if(q -> size)//checking if the size of the queue is 0 so the queue is empty
+    if(q -> size == 0)//checking if the size of the queue is 0 so the queue is empty
     {   
         q -> head = new; //if that is the case whe initialize the reference to the queue's head with the reference of the new element
     }
@@ -66,7 +66,7 @@ int enqueue(queue q, int e)
 
 int dequeue( queue q)
 {
-    if(q -> size) //checking if the size of the queue is 0
+    if(q -> size == 0) //checking if the size of the queue is 0
     {
         printf("Impossible to remove an element in an empty queue."); //warning the user
         return 0; //returning 0 to represent failure 
