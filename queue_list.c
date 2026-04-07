@@ -87,11 +87,19 @@ int dequeue( queue q)
         printf("Impossible to remove an element in an empty queue."); //warning the user
         return 0; //returning 0 to represent failure 
     }
+    if( q -> size == 1) //if the size of the queue is 1, we have to update to the NULL value the reference to the queue's head and tail
+    {
+        free(q->head); //freeing up the memory space used to store the only element in the queue 
+        q -> head = NULL; //updating to NULL the head's reference 
+        q -> tail = NULL; //updating to NULL the tail's reference 
+    }
+    else //if the size of the queue is greater than 1
+    {
+        struct node* temp = q -> head; //declaring and initializing a node pointer variable to store the reference of the head's element
+        q -> head = q->head->next; //updating the queue head's reference to the next element of the previous head 
+        free(temp); //freeing up the space in memory allocated to store the previous head element
+    }
 
-    struct node* temp = q -> head; //declaring and initializing a node pointer variable to store the reference of the head's element
-    q->head = q->head->next; //updating the queue head's reference to the next element of the previous head 
-    free(temp); //freeing up the space in memory allocated to store the previous head element
     (q -> size)--; //decreasing the queue's size
-
     return 1; //returning 1 to represent success
 }
